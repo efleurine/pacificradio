@@ -23,9 +23,7 @@ function App() {
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <View style={{flex: 1}}>
-          <TestNavigator />
-        </View>
+        <TestNavigator />
       </SafeAreaView>
     </>
   );
