@@ -1,26 +1,44 @@
+import React from "react";
 import "react-native-gesture-handler";
-// import React from "react";
-// import {View, Text, Button} from "react-native";
 import {createAppContainer} from "react-navigation";
 import {createStackNavigator} from "react-navigation-stack";
+import {createBottomTabNavigator} from "react-navigation-tabs";
+import {createDrawerNavigator} from "react-navigation-drawer";
 
-import {HomeScreen, DemoScreen, TestScreen} from "./screens";
+import {MainScreen, RadioScreen, TvScreen, JournalScreen, TestScreen} from "./screens";
 
-const AppNavigator = createStackNavigator(
-  {
-    Home: {
-      screen: HomeScreen,
-    },
-    Demo: {
-      screen: DemoScreen,
-    },
-    Test: {
-      screen: TestScreen,
-    },
+const MainStack = createStackNavigator({
+  Main: MainScreen,
+});
+
+const RadioStack = createStackNavigator({
+  Radio: RadioScreen,
+});
+
+const TVStack = createStackNavigator({
+  TV: TvScreen,
+});
+
+const NationalStack = createStackNavigator({
+  National: JournalScreen,
+});
+
+const TestStack = createStackNavigator({
+  Test: TestScreen,
+});
+
+const TabNavigator = createBottomTabNavigator({
+  Main: MainStack,
+  Radio: RadioStack,
+  TV: TVStack,
+  National: NationalStack,
+  Test: TestStack,
+});
+
+const DrawerNavigator = createDrawerNavigator({
+  App: {
+    screen: TabNavigator,
   },
-  {
-    initialRouteName: "Home",
-  }
-);
+});
 
-export default createAppContainer(AppNavigator);
+export default createAppContainer(DrawerNavigator);
