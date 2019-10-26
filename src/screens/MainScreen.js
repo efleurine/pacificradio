@@ -24,18 +24,6 @@ export default class MainScreen extends React.Component {
             <Icon
               color="white"
               underlayColor="transparent"
-              name="live-tv"
-              onPress={() => navigation.navigate("Television")}
-            />
-            <Icon
-              color="white"
-              underlayColor="transparent"
-              name="radio"
-              onPress={() => navigation.navigate("RadioP")}
-            />
-            <Icon
-              color="white"
-              underlayColor="transparent"
               name="share"
               onPress={() => {
                 console.log("open share");
@@ -66,9 +54,11 @@ export default class MainScreen extends React.Component {
   render() {
     return (
       <SafeAreaView>
-        <Text>Cool</Text>
         <View>
-          <ImageBackground source={require("../assets/images/back.png")} style={styles.container} />
+          <ImageBackground
+            source={require("../assets/images/orange.jpg")}
+            style={styles.container}
+          />
         </View>
       </SafeAreaView>
     );
@@ -77,8 +67,8 @@ export default class MainScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    width: 450,
-    height: 200,
+    width: 1000,
+    height: 1000,
   },
   menuIcons: {
     flex: 1,
