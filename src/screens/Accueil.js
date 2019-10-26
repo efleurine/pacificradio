@@ -59,12 +59,6 @@ export default class MainScreen extends React.Component {
             source={require("../assets/images/orange.jpg")}
             style={styles.container}
           /> */}
-          <View>
-            <Text>Hello world</Text>
-          </View>
-          <TestTheIcon name="phone" />
-          <TestTheIcon name="radio" />
-          <TestTheIcon name="home" />
         </View>
       </SafeAreaView>
     );

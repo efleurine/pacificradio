@@ -6,10 +6,10 @@ import {createBottomTabNavigator} from "react-navigation-tabs";
 import {createDrawerNavigator} from "react-navigation-drawer";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
-import {MainScreen, RadioScreen, TvScreen, JournalScreen, TestScreen} from "./screens";
+import {AccueilScreen, RadioScreen, TvScreen, JournalScreen, TestScreen} from "./screens";
 
-const MainStack = createStackNavigator({
-  Main: MainScreen,
+const AccueilStack = createStackNavigator({
+  Main: AccueilScreen,
 });
 
 const RadioStack = createStackNavigator({
@@ -20,9 +20,14 @@ const TVStack = createStackNavigator({
   TV: TvScreen,
 });
 
-const NationalStack = createStackNavigator({
-  National: JournalScreen,
-});
+const JournalStack = createStackNavigator(
+  {
+    National: JournalScreen,
+  },
+  {
+    headerMode: "none",
+  }
+);
 
 const TestStack = createStackNavigator({
   Test: TestScreen,
@@ -30,10 +35,10 @@ const TestStack = createStackNavigator({
 
 const TabNavigator = createBottomTabNavigator(
   {
-    Accueil: {screen: MainStack},
+    Accueil: {screen: AccueilStack},
     Radio: {screen: RadioStack},
     Television: {screen: TVStack},
-    Journal: {screen: NationalStack},
+    Journal: {screen: JournalStack},
     Test: {screen: TestStack},
   },
   {

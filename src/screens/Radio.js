@@ -1,7 +1,7 @@
 import React from "react";
 import {View, Text, Button} from "react-native";
 
-export default function TestScreen(props) {
+export default function RadioScreen(props) {
   return (
     <View style={{flex: 1, alignItems: "center", justifyContent: "center"}}>
       <Text>This is the test Screen</Text>
@@ -10,11 +10,9 @@ export default function TestScreen(props) {
   );
 }
 
-TestScreen.navigationOptions = {
-  title: "TestScreen",
+RadioScreen.navigationOptions = {
+  title: "Radio Pacific 101.5 fm - Live",
 };
-
-
 
 // import React, {Component} from "react";
 // import {SafeAreaView, Text, View, Alert, Button, Switch} from "react-native";

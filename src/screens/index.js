@@ -1,7 +1,7 @@
 import TestScreen from "./Test";
-import MainScreen from "./MainScreen";
+import AccueilScreen from "./Accueil";
 import RadioScreen from "./Radio";
 import TvScreen from "./Tv";
 import JournalScreen from "./Journal";
 
-export {TestScreen, MainScreen, RadioScreen, TvScreen, JournalScreen};
+export {TestScreen, RadioScreen, TvScreen, JournalScreen, AccueilScreen};
