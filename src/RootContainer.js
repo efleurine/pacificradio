@@ -4,7 +4,7 @@ import {createAppContainer} from "react-navigation";
 import {createStackNavigator} from "react-navigation-stack";
 import {createBottomTabNavigator} from "react-navigation-tabs";
 import {createDrawerNavigator} from "react-navigation-drawer";
-import {MaterialIcons} from "react-native-vector-icons/MaterialIcons";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 import {MainScreen, RadioScreen, TvScreen, JournalScreen, TestScreen} from "./screens";
 
@@ -34,24 +34,26 @@ const TabNavigator = createBottomTabNavigator(
     Radio: {screen: RadioStack},
     Television: {screen: TVStack},
     Journal: {screen: NationalStack},
-    Information: {screen: TestStack},
+    Test: {screen: TestStack},
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
-      TabBarIcon: ({focused, horizontal, tintColor}) => {
+      tabBarIcon: ({focused, horizontal, tintColor}) => {
+        console.log("I was called icon");
         const {routeName} = navigation.state;
         const IconComponent = MaterialIcons;
-        let iconName;
+        let iconName = "";
+
         if (routeName === "Accueil") {
-          iconName = `radio`;
+          iconName = `home`;
         } else if (routeName === "Television") {
-          iconName = `md-tv${focused ? "" : ""}`;
+          iconName = "tv";
         } else if (routeName === "Radio") {
-          iconName = `md-radio${focused ? "" : ""}`;
-        } else if (routeName === "Le Journal") {
-          iconName = `more-vert${focused ? "" : ""}`;
-        } else if (routeName === "Information") {
-          iconName = `ios-information-circle${focused ? "" : "-outline"}`;
+          iconName = "radio";
+        } else if (routeName === "Journal") {
+          iconName = "library-books";
+        } else if (routeName === "Test") {
+          iconName = "home";
         }
 
         return <IconComponent name={iconName} size={25} color={tintColor} />;
@@ -59,6 +61,8 @@ const TabNavigator = createBottomTabNavigator(
     }),
 
     tabBarOptions: {
+      // activeTintColor: "#000000",
+      // inactiveTintColor: "#000000",
       activeTintColor: "#fca010",
       inactiveTintColor: "#1e2b56",
     },

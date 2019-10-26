@@ -1,7 +1,7 @@
 import React from "react";
 import {View, StyleSheet, SafeAreaView, ImageBackground} from "react-native";
 import {Header, Text, Icon} from "react-native-elements";
-// import Icon from "react-native-vector-icons/MaterialIcons";
+import IconTest from "react-native-vector-icons/MaterialIcons";
 
 export default class MainScreen extends React.Component {
   static navigationOptions = ({navigation}) => ({
@@ -55,14 +55,35 @@ export default class MainScreen extends React.Component {
     return (
       <SafeAreaView>
         <View>
-          <ImageBackground
+          {/* <ImageBackground
             source={require("../assets/images/orange.jpg")}
             style={styles.container}
-          />
+          /> */}
+          <View>
+            <Text>Hello world</Text>
+          </View>
+          <TestTheIcon name="phone" />
+          <TestTheIcon name="radio" />
+          <TestTheIcon name="home" />
         </View>
       </SafeAreaView>
     );
   }
+}
+
+function TestTheIcon({name}) {
+  return (
+    <View>
+      <IconTest
+        // color="white"
+        underlayColor="transparent"
+        name={name}
+        onPress={() => {
+          console.log("phone action");
+        }}
+      />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
