@@ -1,11 +1,70 @@
 import React from "react";
-import {View, Text, Button} from "react-native";
+import {View, Text} from "react-native";
+import {Button} from "react-native-elements";
+
+import Sound from "react-native-sound";
+
+Sound.setCategory("Playback");
+
+const radioStream = "http://108.59.11.81:8339/stream?type=http&nocache=8;";
 
 export default function RadioScreen(props) {
+  const ref = React.useRef(null);
+  function initAndPlay() {
+    const whoosh = new Sound(radioStream, Sound.MAIN_BUNDLE, error => {
+      if (error) {
+        return;
+      }
+      ref.current = whoosh;
+      whoosh.play();
+    });
+  }
+
+  React.useEffect(() => {
+    const whoosh = new Sound(radioStream, Sound.MAIN_BUNDLE, error => {
+      if (error) {
+        return;
+      }
+      ref.current = whoosh;
+    });
+  }, []);
+
+  function play() {
+    const whoosh = ref.current;
+    if (!whoosh) {
+      initAndPlay();
+      return;
+    }
+    whoosh.play();
+  }
+
+  function pause() {
+    const whoosh = ref.current;
+    if (!whoosh) {
+      return;
+    }
+    whoosh.pause();
+  }
+
+  function stop() {
+    const whoosh = ref.current;
+    whoosh.stop(() => {
+      whoosh.release();
+      ref.current = null;
+    });
+  }
+
+  // const whoosh = new Sound(radioStream, Sound.MAIN_BUNDLE)
+
   return (
-    <View style={{flex: 1, alignItems: "center", justifyContent: "center"}}>
-      <Text>This is the test Screen</Text>
-      <Button title="Go to Home" onPress={() => props.navigation.navigate("Home")} />
+    <View>
+      <Text>Votre radio 24/24</Text>
+      {/* <Video audioOnly playInBackground playWhenInactive source={{uri: radioStream}} /> */}
+      <View>
+        <Button title="Play" onPress={play} />
+        <Button title="Pause" onPress={pause} />
+        <Button title="Stop" onPress={stop} />
+      </View>
     </View>
   );
 }

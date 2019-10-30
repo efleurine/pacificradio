@@ -6,5 +6,6 @@
     "**/.git/subtree-cache/**": true,
     "**/node_modules/*/**": true
   },
-  "deepcode.review.results.hideInformationIssues": false
+  "deepcode.review.results.hideInformationIssues": false,
+  "java.configuration.updateBuildConfiguration": "disabled"
 }

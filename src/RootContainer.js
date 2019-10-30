@@ -44,7 +44,6 @@ const TabNavigator = createBottomTabNavigator(
   {
     defaultNavigationOptions: ({navigation}) => ({
       tabBarIcon: ({focused, horizontal, tintColor}) => {
-        console.log("I was called icon");
         const {routeName} = navigation.state;
         const IconComponent = MaterialIcons;
         let iconName = "";

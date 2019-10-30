@@ -5,62 +5,18 @@ import IconTest from "react-native-vector-icons/MaterialIcons";
 
 export default class MainScreen extends React.Component {
   static navigationOptions = ({navigation}) => ({
-    header: (
-      <Header
-        placement="left"
-        leftComponent={
-          <Icon
-            color="white"
-            underlayColor="transparent"
-            name="menu"
-            onPress={() => {
-              navigation.openDrawer();
-            }}
-          />
-        }
-        // centerComponent={{ text: "MY TITLE", style: { color: "#fff" } }}
-        rightComponent={
-          <View style={styles.menuIcons}>
-            <Icon
-              color="white"
-              underlayColor="transparent"
-              name="share"
-              onPress={() => {
-                console.log("open share");
-              }}
-            />
-            <Icon
-              color="white"
-              underlayColor="transparent"
-              name="phone"
-              onPress={() => {
-                console.log("phone action");
-              }}
-            />
-            <Icon
-              color="white"
-              underlayColor="transparent"
-              name="more-vert"
-              onPress={() => {
-                console.log("open menu");
-              }}
-            />
-          </View>
-        }
-      />
-    ),
+    title: "Acceuil",
   });
 
   render() {
     return (
-      <SafeAreaView>
-        <View>
-          {/* <ImageBackground
+      <View>
+        <Text>Cool</Text>
+        {/* <ImageBackground
             source={require("../assets/images/orange.jpg")}
             style={styles.container}
           /> */}
-        </View>
-      </SafeAreaView>
+      </View>
     );
   }
 }
