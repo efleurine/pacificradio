@@ -57,7 +57,7 @@ const TabNavigator = createBottomTabNavigator(
         } else if (routeName === "Journal") {
           iconName = "library-books";
         } else if (routeName === "Test") {
-          iconName = "home";
+          iconName = "info";
         }
 
         return <IconComponent name={iconName} size={25} color={tintColor} />;
